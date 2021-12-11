@@ -43,3 +43,17 @@ ggplot(data.sort1[0:30,], aes(drink, caffeine_concentration, fill=type))+
 #Machine learning section
 #-----------------------------------------------
 
+#tree to predict drink type----
+library(tree)
+data = select(data, -drink)
+set.seed(122)
+train = sample(1:nrow(data), nrow(data)*0.7)
+tree.caffeine = tree(type~., data, subset=train)
+summary(tree.caffeine)
+plot(tree.caffeine)
+text(tree.caffeine)
+
+#testing the tree----
+test.caffeine = data[-train,]
+pred=predict(tree.caffeine, test.caffeine, type = "class")
+table(pred, test.caffeine$type)

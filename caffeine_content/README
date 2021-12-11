@@ -22,4 +22,5 @@ This dataset exploration includes:
 	*top_30_drinks_caffeine.png: barchart of the top 30 drinks that have the highest caffeine caffeine_concentration
 
 This data exploration also tested out some machine learning trying to predict different elements
+	* There is a tree testing to predict drink type from data
 

@@ -1,0 +1,25 @@
+/**
+* Caffeine Content of Drinks datawork
+* Date: 12/10/21
+* Author: Aedan Wells
+* Dataset Link: https://www.kaggle.com/heitornunes/caffeine-content-of-drinks
+**/
+
+Caffeine content dataset includes multiple features:
+	*drink: drink name
+	*volume (ml): volume of the drink in mililiters
+	*calories: calorie content of the drink
+	*caffeine (mg): caffeine content in miligrams
+	*type: type of drink between 'Coffee', 'Energy Drink', 'Soft Drink', 'Tea', 'Energy Shots'
+
+The dataset states that this data came from https://www.caffeineinformer.com/the-caffeine-database
+
+This dataset exploration includes:
+	*caffeine.csv: dataset being explored
+	*caffeine_main.R: rscript file used for exploration and visualization
+	*type_vs_caffeine_boxplot.png: Boxplot of the caffeine (mg) content for the different types of beverages
+	*type_vs_conc_boxplot.png: boxplot of the caffeine_concentration for the different types of beverages
+	*top_30_drinks_caffeine.png: barchart of the top 30 drinks that have the highest caffeine caffeine_concentration
+
+This data exploration also tested out some machine learning trying to predict different elements
+

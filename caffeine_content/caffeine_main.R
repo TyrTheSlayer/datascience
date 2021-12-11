@@ -1,0 +1,45 @@
+#-------------------------------------------------------------------------------
+# title: caffeine_main.R
+# Author: Aedan Wells
+# Date: 12/10/21
+# Description: General code for caffeine analysis from kaggle, see
+#              README for additional details
+#-------------------------------------------------------------------------------
+
+#setting working directory and importing the dataset----
+setwd("~/datascience/caffeine_content/")
+data <- read.csv("caffeine.csv")
+
+#Section for library/package imports----
+library(ggplot2)
+library(dplyr)
+
+#general data analysis, adding caffeine concentration----
+head(data)
+tail(data)
+data <- mutate(data, caffeine_concentration = Caffeine..mg. / Volume..ml.)
+
+#boxplot of type versus caffeine level----
+ggplot(data, aes(type, Caffeine..mg., fill=type) )+
+  geom_boxplot(outlier.colour = "red", outlier.shape = 1)+xlab("Type of Drink")+ 
+  ylab("Caffeine (mg)")+ggtitle("Drink Type boxplot to caffeine")
+
+#boxplot of type versus caffeine concentration----
+ggplot(data, aes(type, caffeine_concentration, fill=type) )+
+  geom_boxplot(outlier.colour = "red", outlier.shape = 1)+xlab("Type of Drink")+ 
+  ylab("Caffeine Concetration (mg/ml)")+
+  ggtitle("Drink Type boxplot to caffeine concentration")
+
+
+#basic bar plot to see drink ranking----
+data.sort1 <- data[order(-data$caffeine_concentration),]
+ggplot(data.sort1[0:30,], aes(drink, caffeine_concentration, fill=type))+
+  geom_col()+theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+  ggtitle("Top 30 drinks by Caffeine Concetration")+xlab("Drink")+
+  ylab("Caffeine Concentration")
+
+
+#-----------------------------------------------
+#Machine learning section
+#-----------------------------------------------
+

@@ -44,6 +44,9 @@ ggplot(data.sort1[0:30,], aes(drink, caffeine_concentration, fill=type))+
   ylab("Caffeine Concentration")
 
 
+#Data Normalization
+
+
 #-----------------------------------------------
 #Machine learning section
 #-----------------------------------------------
@@ -79,10 +82,9 @@ set.seed(245)
 train <- sample(1:nrow(data),size=(nrow(data)*0.7),replace = FALSE)
 caffeine.test <- data[-train,]
 caffeine.train <- data[train,]
-caffeine.nn <- nnet(type ~., data = caffeine.train, size = 5)
+caffeine.nn <- nnet(caffeine_concentration~., data = caffeine.train, size = 15)
 
 #testing for neural net----
 pred <- predict(caffeine.nn, caffeine.test)
-table(pred, caffeine.test$type)
-mean(pred == caffeine.test$type)
+mean(pred == caffeine.test$caffeine_concentration)
 

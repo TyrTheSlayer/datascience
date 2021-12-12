@@ -23,4 +23,5 @@ This dataset exploration includes:
 
 This data exploration also tested out some machine learning trying to predict different elements
 	* There is a tree testing to predict drink type from data
+		* There was steps for pruning, for best number of split points see the cross validation output. The script lists 11 as that is currently the best option.
 

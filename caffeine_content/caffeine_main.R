@@ -30,6 +30,11 @@ ggplot(data, aes(type, caffeine_concentration, fill=type) )+
   ylab("Caffeine Concetration (mg/ml)")+
   ggtitle("Drink Type boxplot to caffeine concentration")
 
+#stat plot for frequency of drink type
+ggplot(data, aes(type, fill=type))+stat_count(show.legend = FALSE)+
+  xlab("Drink Type")+ylab("Frequency")+ggtitle("Drink Type Frequency")+ 
+  theme(legend.position = "none")
+
 
 #basic bar plot to see drink ranking----
 data.sort1 <- data[order(-data$caffeine_concentration),]
@@ -57,3 +62,14 @@ text(tree.caffeine)
 test.caffeine = data[-train,]
 pred=predict(tree.caffeine, test.caffeine, type = "class")
 table(pred, test.caffeine$type)
+
+#check for need to prune----
+cv.caffeine = cv.tree(tree.caffeine, FUN=prune.misclass)
+cv.caffeine
+
+prune.caffeine = prune.misclass(tree.caffeine, best = 11)
+plot(prune.caffeine)
+text(prune.caffeine)
+pred=predict(prune.caffeine, test.caffeine, type = "class")
+table(pred, test.caffeine$type)
+

@@ -73,3 +73,16 @@ text(prune.caffeine)
 pred=predict(prune.caffeine, test.caffeine, type = "class")
 table(pred, test.caffeine$type)
 
+#Neural Net----
+library(nnet)
+set.seed(245)
+train <- sample(1:nrow(data),size=(nrow(data)*0.7),replace = FALSE)
+caffeine.test <- data[-train,]
+caffeine.train <- data[train,]
+caffeine.nn <- nnet(type ~., data = caffeine.train, size = 5)
+
+#testing for neural net----
+pred <- predict(caffeine.nn, caffeine.test)
+table(pred, caffeine.test$type)
+mean(pred == caffeine.test$type)
+

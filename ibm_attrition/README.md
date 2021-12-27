@@ -8,6 +8,7 @@ See dataset link above for the general brief over the data provided. As a whole,
 At the least, employees that can be predicted to be in workplace attrition should receive attention to give the best work to the company. 
 
 IBM.csv contains many different features:
+
     *Age: age of the employee 
     *Attrition: the attrition status of an employee (Target Feature for Classification)
     *Department: department the employee worked in

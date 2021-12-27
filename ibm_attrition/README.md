@@ -1,9 +1,8 @@
-/**
+
 * IBM attrition datawork
 * Date: 12/26/21
 * Author: Aedan Wells
 * Dataset Link: https://www.kaggle.com/yasserh/ibm-attrition-dataset
-**/
 
 See dataset link above for the general brief over the data provided. As a whole, making sure the attrition value of an employee is low is paramount.
 At the least, employees that can be predicted to be in workplace attrition should receive attention to give the best work to the company. 
@@ -38,5 +37,4 @@ IBM.csv contains many different features:
         -2 is Good
         -3 is Better
         -4 is Best
-    *YearsAtCompany: Current years the employee has worked with IBM    
-
+    *YearsAtCompany: Current years the employee has worked with IBM

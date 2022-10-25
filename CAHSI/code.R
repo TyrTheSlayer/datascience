@@ -2,10 +2,9 @@
 #@authors Aedan Wells, Jennifer Minnich, Otto Strack
 #Date 10/6
 
-setwd("~/datascience/CAHSI/")
+setwd("~/ML/mlhw2/")
+library('ggplot2')
 
-train = read.csv("D1.csv")
-ytrain = train[ , ncol(train), drop = FALSE]
-xtrain = train[,-ncol(train)]
+train = read.csv("iris_csv.csv")
+ggplot(iris, aes(x = Petal.Width, y = Sepal.Width, colour = Species)) + geom_point() + ggtitle('Species by Petal and Sepal Width')
 
-model = lm(ytrain ~ xtrain)

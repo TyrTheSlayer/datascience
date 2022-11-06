@@ -16,7 +16,7 @@ df_append = pd.DataFrame()
 for file in goalie_file_list:
     temp_frame = pd.read_csv(goalie_path + "/" +file)
     temp_main = pd.DataFrame(temp_frame[temp_frame['situation'] == 'all'])
-    df_append = df_append.append(temp_frame, ignore_index=True)
+    df_append = df_append.append(temp_main, ignore_index=True)
 
 df_append.to_csv('raw_21_goalies/full_goalies.csv')
 
@@ -25,6 +25,6 @@ frame_append = pd.DataFrame()
 for file in skater_file_list:
     temp_frame = pd.read_csv(skater_path + "/" +file)
     temp_main = pd.DataFrame(temp_frame[temp_frame['situation'] == 'all'])
-    frame_append = frame_append.append(temp_frame, ignore_index=True)
+    frame_append = frame_append.append(temp_main, ignore_index=True)
 
 frame_append.to_csv('raw_21_skaters/full_skaters.csv')
